@@ -11,7 +11,7 @@ import {
 } from "@/config/links";
 
 // Logo principal hospedada na pasta public
-const logo = "/overbee-logo.jpg";
+const logo = "/overbee.jpg";
 
 const nav = [
   { to: "/", label: "Home" },

@@ -1,0 +1,120 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Bebas Neue", sans-serif;
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-sans: "Inter", sans-serif;
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-deep: var(--deep);
+}
+
+:root {
+  --radius: 0.25rem;
+  --deep: oklch(0.145 0 0); /* #0D0D0D */
+  --background: oklch(0.205 0 0); /* #171717 */
+  --foreground: oklch(0.96 0 0); /* #F2F2F2 */
+  --card: oklch(0.18 0 0);
+  --card-foreground: oklch(0.96 0 0);
+  --popover: oklch(0.18 0 0);
+  --popover-foreground: oklch(0.96 0 0);
+  --primary: oklch(0.85 0.15 88); /* honey #F5C842 */
+  --primary-foreground: oklch(0.145 0 0);
+  --secondary: oklch(0.25 0 0);
+  --secondary-foreground: oklch(0.96 0 0);
+  --muted: oklch(0.25 0 0);
+  --muted-foreground: oklch(0.65 0 0);
+  --accent: oklch(0.85 0.15 88);
+  --accent-foreground: oklch(0.145 0 0);
+  --destructive: oklch(0.6 0.22 27);
+  --destructive-foreground: oklch(0.96 0 0);
+  --border: oklch(0.3 0 0);
+  --input: oklch(0.3 0 0);
+  --ring: oklch(0.85 0.15 88);
+  --glow: 0 0 24px color-mix(in oklab, var(--primary) 55%, transparent);
+  --glow-strong: 0 0 40px color-mix(in oklab, var(--primary) 75%, transparent);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-deep);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+  ::selection { background: var(--primary); color: var(--primary-foreground); }
+}
+
+@utility font-display { font-family: var(--font-display); letter-spacing: 0.02em; }
+@utility font-heading { font-family: var(--font-heading); }
+
+@utility text-glow { text-shadow: var(--glow); }
+
+@utility hex-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100' viewBox='0 0 56 100'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34L28 66zM28 100L0 84V66l28 16 28-16v18L28 100z' fill='none' stroke='%23F5C842' stroke-opacity='0.08' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 56px 100px;
+}
+
+@utility clip-angle { clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px); }
+@utility clip-hex { clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0 50%); }
+
+@utility btn-honey {
+  display: inline-flex; align-items: center; gap: 0.6rem; justify-content: center;
+  background: var(--primary); color: var(--primary-foreground);
+  font-family: var(--font-heading); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 0.9rem 1.75rem; font-size: 0.85rem;
+  clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+  transition: box-shadow .25s, transform .25s, filter .25s;
+  &:hover { box-shadow: var(--glow-strong); transform: translateY(-2px); filter: brightness(1.08); }
+}
+
+@utility btn-outline-honey {
+  display: inline-flex; align-items: center; gap: 0.6rem; justify-content: center;
+  border: 1px solid var(--primary); color: var(--primary); background: transparent;
+  font-family: var(--font-heading); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 0.9rem 1.75rem; font-size: 0.85rem;
+  transition: all .25s;
+  &:hover { background: var(--primary); color: var(--primary-foreground); box-shadow: var(--glow); }
+}
+
+@utility card-hive {
+  background: linear-gradient(160deg, var(--card), var(--deep));
+  border: 1px solid var(--border);
+  transition: border-color .3s, transform .3s, box-shadow .3s;
+  &:hover { border-color: var(--primary); transform: translateY(-4px); box-shadow: var(--glow); }
+}
+
+@keyframes float-hex { 0%,100% { transform: translateY(0) rotate(0deg); opacity: .25 } 50% { transform: translateY(-30px) rotate(30deg); opacity: .6 } }
+@keyframes rise { from { transform: translateY(0); opacity: 0 } 10% { opacity: .8 } to { transform: translateY(-100vh); opacity: 0 } }
+@utility animate-float-hex { animation: float-hex 9s ease-in-out infinite; }
+@utility animate-rise { animation: rise linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}

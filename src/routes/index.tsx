@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Gamepad2, Monitor, Users } from "lucide-react";
-import logo from "@/assets/overbee_logo.png.asset.json";
+import logo from const logo = "/overbee.jpg";
 import frame from "@/assets/hex_frame.png.asset.json";
 import { HexFloaters, Reveal, SectionTitle } from "@/components/site/Reveal";
 import { DiscordButton, InstagramButton } from "@/components/site/Social";

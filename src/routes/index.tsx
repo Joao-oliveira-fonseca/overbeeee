@@ -50,8 +50,7 @@ function Home() {
           </div>
           <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.4, duration: 0.9 }} className="relative mx-auto hidden w-full max-w-md lg:block">
             <div className="absolute -inset-6 clip-hex bg-primary/30 blur-2xl" />
-            <img
-  src={logo}
+            <img src={logo}
   alt="OVERBEE — A Colmeia emblem"
   className="clip-hex relative aspect-square w-full bg-foreground object-contain"
 />

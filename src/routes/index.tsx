@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Gamepad2, Monitor, Users } from "lucide-react";
 import logo from const logo = "/overbee.jpg";
-import frame from "@/assets/hex_frame.png.asset.json";
+import frame from "const logo = "/overbee.jpg";";
 import { HexFloaters, Reveal, SectionTitle } from "@/components/site/Reveal";
 import { DiscordButton, InstagramButton } from "@/components/site/Social";
 import { MemberCard } from "@/components/site/MemberCard";
